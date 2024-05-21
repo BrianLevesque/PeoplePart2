@@ -1,0 +1,83 @@
+1. db.people.insertOne({first_name: 'Brian',
+ last_name: 'Levesque', 
+email:'brian.lev@gmail.com', 
+gender: 'Male', 
+age: 24, 
+state: "North Carolina", 
+children: [] })
+
+2. db.people.insertOne({first_name: 'Bill',
+ last_name: 'Bob', 
+email:'bill.bob@gmail.com', 
+gender: 'Male', 
+age: 30, 
+state: "North Carolina", 
+children: [
+        { "name": "Junior", "age": 5 },
+        { "name": "Brianna", "age": 3 }
+    ] })
+
+3. db.people.updateOne({first_name:'Clarence'}, {$set: {state: "North Dakota"}})
+
+4. db.people.updateOne({first_name:'Rebecca', last_name: 'Hayes'}, {$set: {email: null}})
+
+5. db.peole.updateMany({state:"Missouri"},
+                    { $inc: {age: 1}})
+
+6. db.people.replaceOne({first_name: "Jerry", last_name: "Baker"},
+{ first_name: "Jerry", last_name: "Baker-Mendez", 
+email: "jerry@classic.ly", gender:"Male", age: 28, 
+state: "Vermont", "children": [{name: "Alan", age: 18}, {name: "Jenny", age: 3}] }
+)
+
+7. db.people.deleteOne({first_name: 'Wanda', last_name: 'Bowman'})
+
+8. db.people.deleteMany({email: null})
+
+9. db.people.createIndex({email: 1})
+
+10. db.people.createIndex({first_name: 1, last_name: 1})
+
+11. db.submissions.insertMany([
+    {
+        title: "The River Bend",
+        upvotes: 10,
+        downvotes: 2,
+        artist: ObjectId("Anna Howard_ID")
+    },
+    {
+        title: "Nine Lives",
+        upvotes: 7,
+        downvotes: 0,
+        artist: ObjectId("Scott Henderson_ID")
+    },
+    {
+        title: "Star Bright",
+        upvotes: 19,
+        downvotes: 3,
+        artist: ObjectId("Andrea Burke_ID")
+    },
+    {
+        title: "Why Like This?",
+        upvotes: 1,
+        downvotes: 5,
+        artist: ObjectId("Steven Marshall_ID")
+    },
+    {
+        title: "Non Sequitur",
+        upvotes: 11,
+        downvotes: 1,
+        artist: ObjectId("Gerald Bailey_ID")
+    }
+])
+
+12. db.submissions.updateOne(
+    { title: "The River Bend" },
+    { $inc: { upvotes: 2 } }
+)
+
+13. db.submissions.updateMany(
+    { upvotes: { $gte: 10 } },
+    { $set: { round2: true } }
+)
+
